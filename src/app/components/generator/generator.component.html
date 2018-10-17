@@ -1,0 +1,10 @@
+<h2>Rally Generator</h2>
+
+<div class="generator-container">
+  <canvas #rallyCanvas myDropTarget (myDrop)="onDrop($event)" width="2000" height="1400"></canvas>
+  <div class="signs">
+      <div *ngFor="let sign of signs.signs; trackBy:id" class="sign">
+          <img [myDraggable]="{data: sign}" src="../../../assets/signs/normal/{{sign.image}}.png" [title]="sign.desc"> 
+        </div>
+  </div>
+</div>

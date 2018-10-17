@@ -1,0 +1,6 @@
+<h2>Novice Signs</h2>
+<div class="sign-container">
+  <div *ngFor="let sign of noviceSigns.signs; trackBy:id" class="sign">
+    <img src="../../../assets/signs/normal/{{sign.image}}.png" [title]="sign.desc"> 
+  </div>
+</div>
