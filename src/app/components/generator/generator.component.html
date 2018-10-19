@@ -1,9 +1,8 @@
 <h2 class="no-print">Rally Generator <img src="./assets/info.png" [title]="infoText" class="info-text"></h2>
 
 <div class="generator-container">
-  <!-- <canvas #rallyCanvas myDropTarget (myDrop)="onDrop($event)" width="2000" height="1400"></canvas> -->
   <div>
-    <div class="canvas" #rallyCanvas  myDropTarget (myDrop)="onDrop($event)">
+    <div class="canvas" id="canvas" #rallyCanvas  myDropTarget (myDrop)="onDrop($event)">
         <img class="rally-sign" *ngFor="let sign of rallySigns" 
         [style.left]="sign.posX" [style.top]="sign.posY" 
         src="./assets/signs/normal/{{sign.image}}.png" alt="sign.name" (click)="rotate($event, sign)">

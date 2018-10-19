@@ -1,5 +1,6 @@
 import { HostListener, Output, Input, Directive, EventEmitter } from '@angular/core';
 import { DragService } from '../services/drag.service';
+import { stringify } from '@angular/core/src/render3/util';
 
 @Directive({
     selector: '[myDropTarget]'
@@ -31,9 +32,10 @@ export class DropTargetDirective {
 
     @HostListener('drop', ['$event'])
     onDrop(event) {
-        console.log('event: ', event);
-        const data = JSON.parse(event.dataTransfer.getData('Text'));
-        this.drop.next({ event: event, data: data });
+        if ('canvas' === event.target.id) {
+            const data = JSON.parse(event.dataTransfer.getData('Text'));
+            this.drop.next({ event: event, data: data });
+        }
     }
 }
 
