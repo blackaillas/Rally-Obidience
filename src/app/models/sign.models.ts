@@ -5,6 +5,12 @@ export class Sign {
     image: string;
 }
 
+export class RallySign extends Sign {
+    posX: string;
+    posY: string;
+    rotateIndex: number;
+}
+
 export enum RallyCategory {
     Novice,
     Advanced

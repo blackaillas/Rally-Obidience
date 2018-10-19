@@ -1,10 +1,23 @@
-<h2>Rally Generator</h2>
+<h2 class="no-print">Rally Generator <img src="../../../assets/info.png" [title]="infoText" class="info-text"></h2>
 
 <div class="generator-container">
-  <canvas #rallyCanvas myDropTarget (myDrop)="onDrop($event)" width="2000" height="1400"></canvas>
-  <div class="signs">
+  <!-- <canvas #rallyCanvas myDropTarget (myDrop)="onDrop($event)" width="2000" height="1400"></canvas> -->
+  <div>
+    <div class="canvas" #rallyCanvas  myDropTarget (myDrop)="onDrop($event)">
+        <img class="rally-sign" *ngFor="let sign of rallySigns" 
+        [style.left]="sign.posX" [style.top]="sign.posY" 
+        src="../../../assets/signs/normal/{{sign.image}}.png" alt="sign.name" (click)="rotate($event, sign)">
+    </div>
+    <div class="arrow-container no-print">
+      <img class="arrow" src="../../../assets/signs/normal/arrow_up.png" [myDraggable]="{data: {id:0, name:'arrow', image:'arrow_up'}}" alt="arrow">
+      <img class="arrow" src="../../../assets/signs/normal/arrow_right.png" [myDraggable]="{data: {id:0, name:'arrow', image:'arrow_right'}}" alt="arrow">
+      <img class="arrow" src="../../../assets/signs/normal/arrow_down.png" [myDraggable]="{data: {id:0, name:'arrow', image:'arrow_down'}}" alt="arrow">
+      <img class="arrow" src="../../../assets/signs/normal/arrow_left.png" [myDraggable]="{data: {id:0, name:'arrow', image:'arrow_left'}}" alt="arrow">
+    </div>
+  </div>
+  <div class="signs no-print">
       <div *ngFor="let sign of signs.signs; trackBy:id" class="sign">
-          <img [myDraggable]="{data: sign}" src="../../../assets/signs/normal/{{sign.image}}.png" [title]="sign.desc"> 
+          <img [myDraggable]="{data: sign}" src="../../../assets/signs/normal/{{sign.image}}.png" [title]="sign.name"> 
         </div>
   </div>
 </div>

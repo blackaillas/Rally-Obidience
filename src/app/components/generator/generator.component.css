@@ -4,11 +4,16 @@
     margin:30px;
 }
 
-canvas {
+.info-text {
+    height: 25px;
+}
+
+canvas, .canvas {
     border: 3px solid skyblue;
     width: 1000px;
     height: 700px;
     margin-right: 50px;
+    position: relative;;
 }
 
 .signs {
@@ -21,4 +26,13 @@ canvas {
     max-width: 100px;
     margin: 5px;
     border: 1px solid gray;
+}
+
+.rally-sign {
+    position: absolute;
+    max-width: 100px;
+}
+
+.arrow {
+    margin: 15px;
 }
