@@ -11,22 +11,9 @@ export class GeneratorComponent {
     signs = NoviceSigns.find(set => set.category === RallyCategory.Novice);
     rallySigns: RallySign[] = [];
     infoText = 'Drag the arrows and signs within the empty area to build your set. ' +
-        'With clicking on the placed elements you can rotate them.';
+        'With clicking on the placed elements you can rotate them. In Chrome press Ctrl + P to print.';
 
     constructor() { }
-
-    /*
-    works with real canvas
-    onDrop(data: any) {
-      const context = this.canvasRef.nativeElement.getContext('2d');
-      const source = new Image();
-      source.src = '../../../assets/signs/normal/' + data.data.image + '.png';
-      context.drawImage(source,
-        (data.event.layerX - data.data.offsetX)*2,
-        (data.event.layerY - data.data.offsetY)*2,
-        (data.data.width)*2, (data.data.height)*2);
-      context.save();
-    }*/
 
     onDrop(data: any) {
         this.rallySigns.push(
