@@ -224,7 +224,7 @@ module.exports = ".generator-container {\r\n    display: flex;\r\n    \r\n    ma
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h2 class=\"no-print\">Rally Generator <img src=\"../../../assets/info.png\" [title]=\"infoText\" class=\"info-text\"></h2>\n\n<div class=\"generator-container\">\n  <!-- <canvas #rallyCanvas myDropTarget (myDrop)=\"onDrop($event)\" width=\"2000\" height=\"1400\"></canvas> -->\n  <div>\n    <div class=\"canvas\" #rallyCanvas  myDropTarget (myDrop)=\"onDrop($event)\">\n        <img class=\"rally-sign\" *ngFor=\"let sign of rallySigns\" \n        [style.left]=\"sign.posX\" [style.top]=\"sign.posY\" \n        src=\"../../../assets/signs/normal/{{sign.image}}.png\" alt=\"sign.name\" (click)=\"rotate($event, sign)\">\n    </div>\n    <div class=\"arrow-container no-print\">\n      <img class=\"arrow\" src=\"../../../assets/signs/normal/arrow_up.png\" [myDraggable]=\"{data: {id:0, name:'arrow', image:'arrow_up'}}\" alt=\"arrow\">\n      <img class=\"arrow\" src=\"../../../assets/signs/normal/arrow_right.png\" [myDraggable]=\"{data: {id:0, name:'arrow', image:'arrow_right'}}\" alt=\"arrow\">\n      <img class=\"arrow\" src=\"../../../assets/signs/normal/arrow_down.png\" [myDraggable]=\"{data: {id:0, name:'arrow', image:'arrow_down'}}\" alt=\"arrow\">\n      <img class=\"arrow\" src=\"../../../assets/signs/normal/arrow_left.png\" [myDraggable]=\"{data: {id:0, name:'arrow', image:'arrow_left'}}\" alt=\"arrow\">\n    </div>\n  </div>\n  <div class=\"signs no-print\">\n      <div *ngFor=\"let sign of signs.signs; trackBy:id\" class=\"sign\">\n          <img [myDraggable]=\"{data: sign}\" src=\"../../../assets/signs/normal/{{sign.image}}.png\" [title]=\"sign.name\"> \n        </div>\n  </div>\n</div>\n"
+module.exports = "<h2 class=\"no-print\">Rally Generator <img src=\"./assets/info.png\" [title]=\"infoText\" class=\"info-text\"></h2>\n\n<div class=\"generator-container\">\n  <!-- <canvas #rallyCanvas myDropTarget (myDrop)=\"onDrop($event)\" width=\"2000\" height=\"1400\"></canvas> -->\n  <div>\n    <div class=\"canvas\" #rallyCanvas  myDropTarget (myDrop)=\"onDrop($event)\">\n        <img class=\"rally-sign\" *ngFor=\"let sign of rallySigns\" \n        [style.left]=\"sign.posX\" [style.top]=\"sign.posY\" \n        src=\"./assets/signs/normal/{{sign.image}}.png\" alt=\"sign.name\" (click)=\"rotate($event, sign)\">\n    </div>\n    <div class=\"arrow-container no-print\">\n      <img class=\"arrow\" src=\"./assets/signs/normal/arrow_up.png\" [myDraggable]=\"{data: {id:0, name:'arrow', image:'arrow_up'}}\" alt=\"arrow\">\n      <img class=\"arrow\" src=\"./assets/signs/normal/arrow_right.png\" [myDraggable]=\"{data: {id:0, name:'arrow', image:'arrow_right'}}\" alt=\"arrow\">\n      <img class=\"arrow\" src=\"./assets/signs/normal/arrow_down.png\" [myDraggable]=\"{data: {id:0, name:'arrow', image:'arrow_down'}}\" alt=\"arrow\">\n      <img class=\"arrow\" src=\"./assets/signs/normal/arrow_left.png\" [myDraggable]=\"{data: {id:0, name:'arrow', image:'arrow_left'}}\" alt=\"arrow\">\n    </div>\n  </div>\n  <div class=\"signs no-print\">\n      <div *ngFor=\"let sign of signs.signs; trackBy:id\" class=\"sign\">\n          <img [myDraggable]=\"{data: sign}\" src=\"./assets/signs/normal/{{sign.image}}.png\" [title]=\"sign.name\"> \n        </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -264,20 +264,8 @@ var GeneratorComponent = /** @class */ (function () {
         this.signs = src_app_models_sign_models__WEBPACK_IMPORTED_MODULE_1__["NoviceSigns"].find(function (set) { return set.category === src_app_models_sign_models__WEBPACK_IMPORTED_MODULE_1__["RallyCategory"].Novice; });
         this.rallySigns = [];
         this.infoText = 'Drag the arrows and signs within the empty area to build your set. ' +
-            'With clicking on the placed elements you can rotate them.';
+            'With clicking on the placed elements you can rotate them. In Chrome press Ctrl + P to print.';
     }
-    /*
-    works with real canvas
-    onDrop(data: any) {
-      const context = this.canvasRef.nativeElement.getContext('2d');
-      const source = new Image();
-      source.src = '../../../assets/signs/normal/' + data.data.image + '.png';
-      context.drawImage(source,
-        (data.event.layerX - data.data.offsetX)*2,
-        (data.event.layerY - data.data.offsetY)*2,
-        (data.data.width)*2, (data.data.height)*2);
-      context.save();
-    }*/
     GeneratorComponent.prototype.onDrop = function (data) {
         this.rallySigns.push(__assign({}, data.data, { posX: data.event.layerX - data.data.offsetX + 'px', posY: data.event.layerY - data.data.offsetY + 'px' }));
     };
@@ -399,7 +387,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h2>Pre-defined Rallies</h2>\n<span><i>Scroll for further rally setups</i></span>\n\n<div>\n<img *ngFor=\"let rally of rallies; trackBy:id\" src=\"../../../assets/rallies/{{rally.image}}\" alt=\"{{rally.name}}\">\n</div>"
+module.exports = "<h2>Pre-defined Rallies</h2>\n<span><i>Scroll for further rally setups</i></span>\n\n<div>\n<img *ngFor=\"let rally of rallies; trackBy:id\" src=\"./assets/rallies/{{rally.image}}\" alt=\"{{rally.name}}\">\n</div>"
 
 /***/ }),
 
@@ -470,7 +458,7 @@ module.exports = ".menu-container {\r\n    display: flex;\r\n    justify-content
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"menu-container\">\n  <a>Novice Signs</a>\n</div>\n<div class=\"sign-container\">\n  <div *ngFor=\"let sign of noviceSigns.signs; trackBy:id\" class=\"sign\">\n    <img src=\"../../../assets/signs/normal/{{sign.image}}.png\" [title]=\"sign.desc\"> \n  </div>\n</div>"
+module.exports = "<div class=\"menu-container\">\n  <a>Novice Signs</a>\n</div>\n<div class=\"sign-container\">\n  <div *ngFor=\"let sign of noviceSigns.signs; trackBy:id\" class=\"sign\">\n    <img src=\"./assets/signs/normal/{{sign.image}}.png\" [title]=\"sign.desc\"> \n  </div>\n</div>"
 
 /***/ }),
 
