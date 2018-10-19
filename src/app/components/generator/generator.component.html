@@ -16,7 +16,7 @@
     </div>
   </div>
   <div class="signs no-print">
-      <div *ngFor="let sign of signs.signs; trackBy:id" class="sign">
+      <div *ngFor="let sign of signs.signs" class="sign">
           <img [myDraggable]="{data: sign}" src="./assets/signs/normal/{{sign.image}}.png" [title]="sign.name"> 
         </div>
   </div>
