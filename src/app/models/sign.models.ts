@@ -12,8 +12,10 @@ export class RallySign extends Sign {
 }
 
 export enum RallyCategory {
-    Novice,
-    Advanced
+    Basic,
+    LevelOne,
+    LevelTwo,
+    LevelThree
 }
 
 export class SignsSet {
@@ -29,7 +31,7 @@ export const NoviceSigns: SignsSet[] = [
         id: 1,
         name: 'Novice Set',
         desc: '',
-        category: RallyCategory.Novice,
+        category: RallyCategory.Basic,
         signs: [
             {
                 id: 1,

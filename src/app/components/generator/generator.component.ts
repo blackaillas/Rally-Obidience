@@ -1,5 +1,6 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NoviceSigns, RallyCategory, RallySign } from 'src/app/models/sign.models';
+import { NoviceSigns as NoviceSigns_hu } from 'src/app/models/sign-hu.models';
 
 @Component({
     selector: 'app-generator',
@@ -8,10 +9,10 @@ import { NoviceSigns, RallyCategory, RallySign } from 'src/app/models/sign.model
 })
 export class GeneratorComponent {
     @ViewChild('rallyCanvas') canvasRef: ElementRef;
-    signs = NoviceSigns.find(set => set.category === RallyCategory.Novice);
+    signs = NoviceSigns_hu.find(set => set.category === RallyCategory.Basic);
     rallySigns: RallySign[] = [];
-    infoText = 'Drag the arrows and signs within the empty area to build your set. ' +
-        'With clicking on the placed elements you can rotate them. In Chrome press Ctrl + P to print.';
+    infoText = 'A jelek és nyílak húzásával készítsd el a saját pályádat. ' +
+        'Az elhelyezett elemeket tudod forgatni kattintással. Nyomtatáshoz használd a Chrome beépitett funckióját (Ctrl + P).';
 
     constructor() { }
 
