@@ -10,6 +10,7 @@ import { GeneratorComponent } from './components/generator/generator.component';
 import { DragService } from './services/drag.service';
 import { DraggableDirective } from './directives/drag.directive';
 import { DropTargetDirective } from './directives/drop-target.directive';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { DropTargetDirective } from './directives/drop-target.directive';
     RalliesComponent,
     GeneratorComponent,
     DraggableDirective,
-    DropTargetDirective
+    DropTargetDirective,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,17 @@
+.menu-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.menu-container div a {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px;
+}
+
+.country-selector, .level-selector {
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+}

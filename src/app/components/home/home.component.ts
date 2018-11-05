@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NoviceSigns, RallyCategory } from 'src/app/models/sign.models';
 
 @Component({
   selector: 'app-home',
@@ -7,8 +6,6 @@ import { NoviceSigns, RallyCategory } from 'src/app/models/sign.models';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  
-
   constructor() { }
 
   ngOnInit() {

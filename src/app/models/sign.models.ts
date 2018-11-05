@@ -3,6 +3,12 @@ export class Sign {
     name: string;
     desc: string;
     image: string;
+    reusable: number;
+    ignoreFromCountRule?: boolean;
+}
+
+export class SignViewModel extends Sign {
+    cannotReuse?: boolean;
 }
 
 export class RallySign extends Sign {
@@ -11,18 +17,11 @@ export class RallySign extends Sign {
     rotateIndex: number;
 }
 
-export enum RallyCategory {
-    Basic,
-    LevelOne,
-    LevelTwo,
-    LevelThree
-}
-
 export class SignsSet {
     id: number;
     name: string;
     desc: string;
-    category: RallyCategory;
+    category: string;
     signs: Sign[];
 }
 
@@ -31,13 +30,14 @@ export const NoviceSigns: SignsSet[] = [
         id: 1,
         name: 'Novice Set',
         desc: '',
-        category: RallyCategory.Basic,
+        category: 'RallyCategory.Basic',
         signs: [
             {
                 id: 1,
                 name: 'Start',
                 desc: 'Indicates the beginning of the course. The dog does not have to be sitting at the start',
-                image: '001-start'
+                image: '001-start',
+                reusable: 1
             },
             {
                 id: 2,

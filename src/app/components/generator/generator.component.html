@@ -1,22 +1,31 @@
+<app-header class="no-print" (levelChange)="onLevelChange($event)"></app-header>
+
 <h2 class="no-print">Pálya Generátor <img src="./assets/info.png" [title]="infoText" class="info-text"></h2>
 
 <div class="generator-container">
   <div>
+    <div class="rules no-print">
+      <div class="minMaxRule" *ngIf="selectedLevel">
+        <span [class.warning]="rallySigns.length < selectedLevel.minSign" [class.success]="rallySigns.length >= selectedLevel.minSign">Min: {{selectedLevel.minSign}}</span> | 
+        <span [class.success]="rallySigns.length === selectedLevel.maxSign">Max: {{selectedLevel.maxSign}}</span> | 
+        <span [class.success]="(rallySigns.length >= selectedLevel.minSign) && (rallySigns.length <= selectedLevel.maxSign)">Current: {{currentSignCount}}</span>
+    </div>
+    </div>
     <div class="canvas" id="canvas" #rallyCanvas  myDropTarget (myDrop)="onDrop($event)">
         <img class="rally-sign" *ngFor="let sign of rallySigns" 
         [style.left]="sign.posX" [style.top]="sign.posY" 
         src="./assets/signs/hu/{{sign.image}}.png" alt="sign.name" (click)="rotate($event, sign)">
     </div>
     <div class="arrow-container no-print">
-      <img class="arrow" src="./assets/signs/hu/arrow_up.png" [myDraggable]="{data: {id:0, name:'arrow', image:'arrow_up'}}" alt="arrow">
-      <img class="arrow" src="./assets/signs/hu/arrow_right.png" [myDraggable]="{data: {id:0, name:'arrow', image:'arrow_right'}}" alt="arrow">
-      <img class="arrow" src="./assets/signs/hu/arrow_down.png" [myDraggable]="{data: {id:0, name:'arrow', image:'arrow_down'}}" alt="arrow">
-      <img class="arrow" src="./assets/signs/hu/arrow_left.png" [myDraggable]="{data: {id:0, name:'arrow', image:'arrow_left'}}" alt="arrow">
+      <img class="arrow" src="./assets/signs/hu/arrow_up.png" [myDraggable]="{data: {id:0, name:'arrow', image:'arrow_up', ignoreFromCountRule: true }}" alt="arrow">
+      <img class="arrow" src="./assets/signs/hu/arrow_right.png" [myDraggable]="{data: {id:0, name:'arrow', image:'arrow_right', ignoreFromCountRule: true }}" alt="arrow">
+      <img class="arrow" src="./assets/signs/hu/arrow_down.png" [myDraggable]="{data: {id:0, name:'arrow', image:'arrow_down', ignoreFromCountRule: true }}" alt="arrow">
+      <img class="arrow" src="./assets/signs/hu/arrow_left.png" [myDraggable]="{data: {id:0, name:'arrow', image:'arrow_left', ignoreFromCountRule: true }}" alt="arrow">
     </div>
   </div>
-  <div class="signs no-print">
+  <div class="signs no-print" *ngIf="signs">
       <div *ngFor="let sign of signs.signs" class="sign">
-          <img [myDraggable]="{data: sign}" src="./assets/signs/hu/{{sign.image}}.png" [title]="sign.name"> 
+          <img [myDraggable]="{data: sign}" src="./assets/signs/hu/{{sign.image}}.png" [title]="sign.name" [class.disabled]="sign.cannotReuse"> 
         </div>
   </div>
 </div>

@@ -1,0 +1,8 @@
+<div class="menu-container">
+  <div class="country-selector">
+    <a *ngFor="let lang of headerFilters.languages" [class.selected]="selectedLanguage === lang" (click)="selectLanguage(lang)">Magyar szabályzat</a>
+  </div>
+  <div class="level-selector">
+    <a *ngFor="let level of headerFilters.levels" [class.selected]="selectedLevel === level.code" [title]="level.desc" (click)="selectLevel(level)">{{level.code}}</a>
+  </div>
+</div>

@@ -1,16 +1,6 @@
-<div class="menu-container">
-  <div class="country-selector">
-    <a [class.selected]="selectedLanguage === Language.HU">Magyar szabályzat</a>
-  </div>
-  <div class="level-selector">
-    <a [class.selected]="selectedLevel === HUN_LEVELS.RO_B">RO B</a>
-    <a [class.selected]="selectedLevel === HUN_LEVELS.RO_1">RO 1</a>
-    <a [class.selected]="selectedLevel === HUN_LEVELS.RO_2">RO 2</a>
-    <a [class.selected]="selectedLevel === HUN_LEVELS.RO_3">RO 3</a>
-  </div>
-</div>
-<div class="sign-container">
-  <div *ngFor="let sign of noviceSigns.signs" class="sign">
+<app-header (levelChange)="onLevelChange($event)" (languageChange)="onLanguageChange($event)"></app-header>
+<div class="sign-container" *ngIf="signs">
+  <div *ngFor="let sign of signs.signs" class="sign">
     <img src="./assets/signs/{{selectedLanguage}}/{{sign.image}}.png" [title]="sign.desc"> 
   </div>
 </div>

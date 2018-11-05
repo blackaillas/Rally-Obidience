@@ -25,3 +25,19 @@ a:hover {
 a.selected {
     background-color: lightblue;
 }
+
+img.disabled {
+    opacity: .5;
+}
+
+span.success {
+    color: green;
+}
+
+span.warning {
+    color: orange;
+}
+
+span.error {
+    color: orangered;
+}
